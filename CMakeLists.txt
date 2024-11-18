@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.10)
+project(DS LANGUAGES CXX VERSION 0.1)
+set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_GENERATOR "Ninja")
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_compile_options(-fexec-charset=GBK)
+endif()
+add_subdirectory(chapter3)
