@@ -2,11 +2,11 @@
 #include "LinkList.hpp"
 #include <iostream>
 
-LinkList::LinkList() : head(nullptr) {}
+LinkList::LinkList() : head(NULL) {}
 
 LinkList::~LinkList()
 {
-    while (head != nullptr) {
+    while (head != NULL) {
         Node* temp = head;
         head = head->next;
         delete temp;
@@ -16,12 +16,12 @@ LinkList::~LinkList()
 void LinkList::insertasc(int val)
 {
     Node* newNode = new Node(val);
-    if (head == nullptr || head->data >= val) {
+    if (head == NULL || head->data >= val) {
         newNode->next = head;
         head = newNode;
     } else {
         Node* current = head;
-        while (current->next != nullptr && current->next->data < val) {
+        while (current->next != NULL && current->next->data < val) {
             current = current->next;
         }
         newNode->next = current->next;
@@ -39,7 +39,7 @@ void LinkList::insertdesc(int val)
 void LinkList::display() const
 {
     Node* current = head;
-    while (current != nullptr) {
+    while (current != NULL) {
         std::cout << current->data << " ";
         current = current->next;
     }
@@ -52,7 +52,7 @@ LinkList LinkList::mergeLists(const LinkList& list1, const LinkList& list2)
     Node* current1 = list1.head;
     Node* current2 = list2.head;
 
-    while ((current1 != nullptr) && (current2 != nullptr)) {
+    while ((current1 != NULL) && (current2 != NULL)) {
         if (current1->data <= current2->data) {
             mergedList.insertasc(current1->data);
             current1 = current1->next;
@@ -62,12 +62,12 @@ LinkList LinkList::mergeLists(const LinkList& list1, const LinkList& list2)
         }
     }
 
-    while (current1 != nullptr) {
+    while (current1 != NULL) {
         mergedList.insertasc(current1->data);
         current1 = current1->next;
     }
 
-    while (current2 != nullptr) {
+    while (current2 != NULL) {
         mergedList.insertasc(current2->data);
         current2 = current2->next;
     }
@@ -77,10 +77,10 @@ LinkList LinkList::mergeLists(const LinkList& list1, const LinkList& list2)
 
 void LinkList::reverse()
 {
-    Node* prev = nullptr;
+    Node* prev = NULL;
     Node* current = head;
-    Node* next = nullptr;
-    while (current != nullptr) {
+    Node* next = NULL;
+    while (current != NULL) {
         next = current->next;
         current->next = prev;
         prev = current;
