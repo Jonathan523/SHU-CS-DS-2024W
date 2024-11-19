@@ -19,7 +19,7 @@ int main()
 
     cout << "Please input the element you want to insert : ";
     cin >> e;
-    Link.Insert(12);
+    Link.Insert(e);
     cout << "LinkList: " << endl;
     Link.ShowLinkList();
     cout << '\n';
