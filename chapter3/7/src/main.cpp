@@ -8,6 +8,7 @@ int main() {
     poly.addTerm(5, 2); 
     poly.addTerm(4, 1); 
     poly.addTerm(3, 0); 
+    cout << "6x^3+5x^2+4x+3=";
 
     double x = 0.0;
     cout << "please input the 'x':" << endl;
