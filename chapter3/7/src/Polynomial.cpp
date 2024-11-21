@@ -1,7 +1,7 @@
 #include "Polynomial.hpp"
 #include <cmath> 
 
-Node::Node(int coeff, int exp) : coefficient(coeff), exponent(exp), next(nullptr) {}
+Node::Node(int coeff, int exp) : coefficient(coeff), exponent(exp), next(NULL) {}
 
 Polynomial::Polynomial() {
     head = new Node();
