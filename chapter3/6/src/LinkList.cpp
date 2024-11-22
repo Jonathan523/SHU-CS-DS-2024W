@@ -26,7 +26,7 @@ void LinkList::append(int value)  // 插入节点到链表尾部
 void LinkList::Insert(int e)  // 将元素e插入有序链表中
 {
     Node* p = new Node(e);
-    Node* q = head->next;
+    Node* q = head;
     while (p->data > q->next->data) {
         q = q->next;
         if (q->next == NULL)
@@ -44,7 +44,7 @@ void LinkList::Insert(int e)  // 将元素e插入有序链表中
 void LinkList::Delete(int e)  // 删除数据元素等于e的所有结点
 {
     bool flag = false;
-    Node* p = head->next;
+    Node* p = head;
     while (p != NULL&&p->next!=NULL) {
         if (e == p->next->data) {
             p->next = p->next->next;
