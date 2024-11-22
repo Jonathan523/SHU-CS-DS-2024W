@@ -32,9 +32,8 @@ void LinkList::Insert(int e)  // 将元素e插入有序链表中
         if (q->next == NULL)
             break;
     }
-    Node* temp = q->next;
-    q->next = p;
-    p->next = temp;
+    p->next=q->next;
+    q->next=p;
 }
 
 void LinkList::Delete(int e)  // 删除数据元素等于e的所有结点
