@@ -1,8 +1,8 @@
-#include "SequenceList.hpp"
+#include "SequenceList.hpp" 
 template <typename T>
-SequenceList<T>::SequenceList(int size, T* array) : length(size)
+SequenceList<T>::SequenceList(int size, T* array) : length(size),maxlength(size+5)
 {
-    data = new T[size];
+    data = new T[size+5];   
     if (array != NULL) {
         for (int i = 0; i < size; i++) {
             data[i] = array[i];
@@ -18,11 +18,7 @@ SequenceList<T>::~SequenceList()
     }
 }
 
-template <typename T>
-T& SequenceList<T>::operator[](int index)
-{
-        return data[index];
-}
+
 
 template <typename T>
 int SequenceList<T>::size() const
