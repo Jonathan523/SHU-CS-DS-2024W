@@ -26,26 +26,21 @@ void LinkList::append(int value)  // 插入节点到链表尾部
 void LinkList::Insert(int e)  // 将元素e插入有序链表中
 {
     Node* p = new Node(e);
-    Node* q = head->next;
+    Node* q = head;
     while (p->data > q->next->data) {
         q = q->next;
         if (q->next == NULL)
             break;
     }
-    if (q->next == NULL)
-        append(e);
-    else {
-        Node* temp = q->next;
-        q->next = p;
-        p->next = temp;
-    }
+    p->next=q->next;
+    q->next=p;
 }
 
 void LinkList::Delete(int e)  // 删除数据元素等于e的所有结点
 {
     bool flag = false;
-    Node* p = head->next;
-    while (p != NULL&&p->next!=NULL) {
+    Node* p = head;
+    while (p != NULL && p->next != NULL) {
         if (e == p->next->data) {
             p->next = p->next->next;
             flag = true;
@@ -57,8 +52,7 @@ void LinkList::Delete(int e)  // 删除数据元素等于e的所有结点
         cout << "!!!!!!!!!!There has no " << e << endl;
         cout << "LinkList: " << endl;
         ShowLinkList();
-    } 
-    else if (flag == true) {
+    } else if (flag == true) {
         cout << e << " has been deleted" << endl;
         cout << "LinkList: " << endl;
         ShowLinkList();
