@@ -53,12 +53,15 @@ int SequenceList<T>::size() const
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const SequenceList<T>& List)
 {
-    os << '(';
-    for (int i = 0; i < List.size() - 1; i++) {
-        os << List.data[i] << ',';
-    }
-    os << List.data[List.size() - 1] << ')';
-    return os;
+	os << '(';
+	for (int i = 0; i < List.size() - 1; i++) {
+		os << List.data[i] << ',';
+	}
+	if(List.size()!=0){
+		os << List.data[List.size() - 1] ;
+	}
+	os << ')';
+	return os;
 }
 
 template <typename T>
