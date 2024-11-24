@@ -29,24 +29,14 @@ void LinkList::insertasc(int val)
     }
 }
 
-void LinkList::insertdesc(int val)
+void LinkList::insert(int val)
 {
     Node* newNode = new Node(val);
     newNode->next = head;
     head = newNode;
 }
 
-void LinkList::display() const
-{
-    Node* current = head;
-    while (current != NULL) {
-        std::cout << current->data << " ";
-        current = current->next;
-    }
-    std::cout << '\n';
-}
-
-LinkList LinkList::mergeLists(const LinkList& list1, const LinkList& list2)
+LinkList LinkList::merge(const LinkList& list1, const LinkList& list2)
 {
     LinkList mergedList;
     Node* current1 = list1.head;
@@ -75,16 +65,24 @@ LinkList LinkList::mergeLists(const LinkList& list1, const LinkList& list2)
     return mergedList;
 }
 
-void LinkList::reverse()
+LinkList LinkList::reverse(const LinkList& list)
 {
-    Node* prev = NULL;
-    Node* current = head;
-    Node* next = NULL;
+    LinkList reversedList;
+    Node* current = list.head;
     while (current != NULL) {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+        reversedList.insert(current->data);
+        current = current->next;
     }
-    head = prev;
+    return reversedList;
+}
+
+std::ostream& operator<<(std::ostream& os, const LinkList& list)
+{
+    Node* current = list.head;
+    while (current != NULL) {
+        os << current->data << "->";
+        current = current->next;
+    }
+    os << "NULL" << '\n';
+    return os;
 }

@@ -2,6 +2,8 @@
 #pragma once
 
 #include <cstddef>
+#include <iostream>
+#include <ostream>
 class Node
 {
 public:
@@ -18,8 +20,8 @@ public:
     LinkList();
     ~LinkList();
     void insertasc(int val);
-    void insertdesc(int val);
-    void display() const;
-    static LinkList mergeLists(const LinkList& list1, const LinkList& list2);
-    void reverse();
+    void insert(int val);
+    static LinkList merge(const LinkList& list1, const LinkList& list2);
+    static LinkList reverse(const LinkList& list);
+    friend std::ostream& operator<<(std::ostream& os, const LinkList& list);
 };
