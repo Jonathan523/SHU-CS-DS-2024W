@@ -9,8 +9,8 @@ private:
 	int length;
 	const int Maxlength; 
 public:
-	SequenceList() :data(NULL), length(0),Maxlength(5) {}
-	SequenceList(int size=0, T* array = NULL);
+	SequenceList();
+	SequenceList(int size, T* array = NULL);
 	SequenceList(const SequenceList<T>& other);
 	~SequenceList();
 

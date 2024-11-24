@@ -1,4 +1,11 @@
 #include "SequenceList.hpp" 
+
+template <typename T>
+SequenceList<T>::SequenceList() :length(0),Maxlength(5)
+{
+    data = new T[Maxlength];   
+}
+
 template <typename T>
 SequenceList<T>::SequenceList(int size, T* array) : length(size),Maxlength(size+5)
 {
