@@ -2,23 +2,24 @@
 #include <iostream>
 using namespace std;
 
-class Node {
+class Node
+{
 public:
-    int coefficient; 
-    int exponent;   
+    double coefficient;
+    double exponent;
     Node* next;
-    Node(int coeff = 0, int exp = 0);
+    Node(double coeff = 0, double exp = 0);  // 初始化系数和指数
 };
 
-class Polynomial {
+class Polynomial
+{
 private:
     Node* head;
 
 public:
     Polynomial();
     ~Polynomial();
-    void addTerm(int coefficient, int exponent);
+    void add(double coefficient, double exponent);
     double calc(double x) const;
+    void show(int num);
 };
-
-

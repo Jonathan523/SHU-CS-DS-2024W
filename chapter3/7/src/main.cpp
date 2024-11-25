@@ -1,19 +1,42 @@
-#include <iostream>
 #include "Polynomial.hpp"
-using namespace std;
-
-int main() {
+#include <iostream>
+int main()
+{
     Polynomial poly;
-    poly.addTerm(6, 3);
-    poly.addTerm(5, 2); 
-    poly.addTerm(4, 1); 
-    poly.addTerm(3, 0); 
-    cout << "6x^3+5x^2+4x+3="<<endl;
-
+    int num = 0, flag = 0;
+#ifdef DS_DEBUG
+    std::cout << "请输入多项式（系数，指数）——(如系数输入为0则退出)：";
+#endif
+    while (true) {
+        double m = 0, n = 0;
+        std::cin >> m;
+        if (m == 0) {
+            break;
+        };
+        std::cin >> n;
+        if (0 < n && n < 1) {
+            flag = 1;
+        } else if (n <= -1) {
+            flag = 2;
+        } else if (-1 < n && n < 0) {
+            flag = 3;
+        }
+        poly.add(m, n);
+        num++;
+    }
+    poly.show(num);
+    std::cout << '\n';
     double x = 0.0;
-    cout << "please input the 'x':" << endl;
-    cin >> x;
-    cout << "The value of the polynomial at x = " << x << " is " << poly.calc(x) << endl;
-
+#ifdef DS_DEBUG
+    std::cout << "please input the 'x':" << '\n';
+#endif
+    std::cin >> x;
+    if ((flag == 1 && x < 0) || (flag == 2 && x == 0) ||
+        (flag == 3 && x <= 0)) {
+        std::cout << "Invalid input value" << '\n';
+    } else {
+        std::cout << "The value of the polynomial at x = " << x << " is "
+                  << poly.calc(x) << '\n';
+    }
     return 0;
 }
