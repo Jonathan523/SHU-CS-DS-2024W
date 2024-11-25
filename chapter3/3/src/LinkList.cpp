@@ -97,25 +97,25 @@ template<typename T>
 void reverse(LinkList<T>& List)
 {
 	if (List.length == 0 || List.length == 1)
-		{
-            return;
-        }
-	else if (List.length == 2)
 	{
-		List.head->next->next = List.head;
-		List.head = List.head->next;
-		List.head->next->next = NULL;
+		return;
 	}
 	else
 	{
-		LinkList<T> temp=List;
-		List.clear();
-		Node<T>* p=temp.head;
-		while(p!=NULL)
+		Node<T>* p = NULL;
+		Node<T>* q = List.head;
+		Node<T>* r = List.head->next;
+		while (r != NULL)
 		{
-			List.insert(p->data);
-			p=p->next;
+			q->next = p;
+			p = q;
+			q = r;
+			r = r->next;
+
 		}
+		q->next = p;
+		List.head = q;
 	}
 }
+
 
