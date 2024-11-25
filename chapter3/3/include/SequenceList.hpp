@@ -7,13 +7,16 @@ class SequenceList
 private:
 	T* data;
 	int length;
+	const int Maxlength; 
 public:
-	SequenceList() :data(NULL), length(0) {}
+	SequenceList();
 	SequenceList(int size, T* array = NULL);
+	SequenceList(const SequenceList<T>& other);
 	~SequenceList();
 
 	T& operator[](int index);
 	int size() const;
 	template<typename T1>
 	friend std::ostream& operator<<(std::ostream& os, const SequenceList<T1>& List);
+
 };

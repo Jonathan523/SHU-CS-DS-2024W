@@ -32,8 +32,11 @@ private:
 	int length;
 public:
 	LinkList() :head(NULL), length(0) {}
+	LinkList(const LinkList<T>& other);
 	~LinkList();
+	void insert(T a);
 	void append(T a);
+	void clear();
 	template<typename T0>
 	friend std::ostream& operator<<(std::ostream& os, const LinkList<T0>& List);
 

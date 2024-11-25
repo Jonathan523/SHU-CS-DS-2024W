@@ -1,5 +1,18 @@
 #include"LinkList.hpp"
 
+
+template<typename T>
+LinkList<T>::LinkList(const LinkList<T>& other):head(NULL),length(0)
+{
+	Node<T>* p=other.head;
+	while(p!=NULL)
+	{
+		append(p->data);
+		p=p->next;
+	}
+
+}
+
 template<typename T>
 LinkList<T>::~LinkList()
 {
@@ -12,6 +25,23 @@ LinkList<T>::~LinkList()
 	}
 	length = 0;
 
+}
+
+template<typename T>
+void LinkList<T>::insert(T a)
+{
+	if(head==NULL)
+	{
+		head=new Node<T>(a);
+		length++;
+	}
+	else
+	{
+		Node<T>* p = new Node<T>(a);
+		p->next=head;
+		head=p;
+		length++;
+	}
 }
 
 template<typename T>
@@ -34,6 +64,19 @@ void LinkList<T>::append(T a)
 		length++;
 	}
 
+}
+
+template<typename T>
+void LinkList<T>::clear()
+{
+	Node<T>* p=head;
+	while(head!=NULL)
+	{
+		head=head->next;
+		delete p;
+		p=head;
+	}
+	length=0;
 }
 
 template<typename T>
@@ -65,17 +108,14 @@ void reverse(LinkList<T>& List)
 	}
 	else
 	{
-		Node<T>* pre = NULL, * cur = List.head, * next = List.head->next;
-		while (next != NULL)
+		LinkList<T> temp=List;
+		List.clear();
+		Node<T>* p=temp.head;
+		while(p!=NULL)
 		{
-			cur->next = pre;
-			pre = cur;
-			cur = next;
-			next = next->next;
-
+			List.insert(p->data);
+			p=p->next;
 		}
-		cur->next = pre;
-		List.head = cur;
 	}
 }
 
