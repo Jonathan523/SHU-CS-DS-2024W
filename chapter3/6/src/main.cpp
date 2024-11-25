@@ -4,14 +4,18 @@ using namespace std;
 
 int main()
 {
-    int e;
+      int e,n;
     LinkList Link;
-    Link.append(1);
-    Link.append(3);
-    Link.append(6);
-    Link.append(7);
-    Link.append(8);
-    Link.append(11);
+
+
+    cout<<"输入元素数量：";
+    cin>>n;
+    int k;
+    for(int i=0;i<n;i++)
+    {
+        cin>>k;
+        Link.append(k);
+    }
 
     cout << "LinkList: " << endl;
     Link.ShowLinkList();
