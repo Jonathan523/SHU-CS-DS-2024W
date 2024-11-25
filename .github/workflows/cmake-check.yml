@@ -35,8 +35,14 @@ jobs:
         run: |
           for file in bin/*; do
             if [ -x "$file" ]; then
-              echo "Running $file"
-              "$file"
-              echo "Finished running $file"
+              basefile=$(basename "$file")
+              if [ -f "test/${basefile}.in" ]; then
+                echo ">>>>  Running $file with test input test/${basefile}.in  >>>>"
+                "$file" < "test/${basefile}.in"
+              else
+                echo ">>>>  Running $file without test input due to test/${basefile}.in not found  >>>>"
+                "$file"
+              fi
+              echo "<<<<  Finished running $file.  <<<<"
             fi
           done
