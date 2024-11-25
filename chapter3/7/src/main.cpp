@@ -4,7 +4,9 @@ int main()
 {
     Polynomial poly;
     int num = 0, flag = 0;
+#ifdef DS_DEBUG
     std::cout << "请输入多项式（系数，指数）——(如系数输入为0则退出)：";
+#endif
     while (true) {
         double m = 0, n = 0;
         std::cin >> m;
@@ -25,7 +27,9 @@ int main()
     poly.show(num);
     std::cout << '\n';
     double x = 0.0;
+#ifdef DS_DEBUG
     std::cout << "please input the 'x':" << '\n';
+#endif
     std::cin >> x;
     if ((flag == 1 && x < 0) || (flag == 2 && x == 0) ||
         (flag == 3 && x <= 0)) {
