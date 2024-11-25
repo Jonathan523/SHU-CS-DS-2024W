@@ -18,18 +18,27 @@ std::ostream& operator<<(std::ostream& os, const Test& abc)
 	return os;
 }
 int main()
-{
+{  
 	Test array1[5] = { Test(1,2,3),Test(4,5,6),Test(7,8,9),Test(10,11,12),Test(12,13,14)};
 	double array2[7] = {1.7,2.3,3.7,4.0,1.0,0.0,3.3};  
 	SequenceList<Test> List1(5, array1);
 	SequenceList<double> List2(7, array2);
 	LinkList<int> List3;
 	LinkList<Test> List4;
-	List3.append(1);
-	List3.append(2);
-	List3.append(3);
-	List3.append(4);
-	List3.append(5);
+	#ifdef DS_DEBUG
+	std::cout << "请输入List3(无头结点单链表)的元素个数:" << std::endl;
+	#endif
+	int size; std::cin >> size;
+	#ifdef DS_DEBUG
+	std::cout << "请输入List3(无头结点单链表)的元素:" << std::endl;
+	#endif
+	int cnt = 0;
+	while(cnt<size)
+	{	
+		int a; std::cin >> a;
+		List3.append(a);
+		cnt++;
+	}
 	List4.append(Test(1, 2, 3));
 	List4.append(Test(4, 5, 6));
 	List4.append(Test(7, 8, 9));
