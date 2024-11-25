@@ -21,7 +21,6 @@ public:
     ~LinkList();
     void insertasc(int val);
     void insert(int val);
-    static LinkList merge(const LinkList& list1, const LinkList& list2);
-    static LinkList reverse(const LinkList& list);
+    static LinkList merge_and_reverse(const LinkList& list1, const LinkList& list2);
     friend std::ostream& operator<<(std::ostream& os, const LinkList& list);
 };
