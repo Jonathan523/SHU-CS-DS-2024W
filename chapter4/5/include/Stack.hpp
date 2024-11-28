@@ -5,7 +5,7 @@ class Stack
 private:
 	int* data;
 	int top;
-	const int MaxSize;
+	const int MaxSize;  
 public:
 	Stack(const int& size=20);
 	void push(int a);

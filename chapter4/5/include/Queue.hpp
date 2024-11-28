@@ -1,5 +1,5 @@
 #pragma once
-#include"Stack.hpp"
+#include"Stack.hpp"  
 
 class Queue
 {

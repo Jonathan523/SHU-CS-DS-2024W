@@ -7,7 +7,7 @@ Queue::Queue(const int& size) :EntryStack(size), ExitStack(size),MaxSize(size)
 void Queue::push(int a)
 {
 	if (EntryStack.top < MaxSize - 1)
-	{
+	{  
 		EntryStack.push(a);
 	}
 	else

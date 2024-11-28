@@ -17,7 +17,7 @@ int main()
 		std::cout << "1.元素入队" << std::endl;
 		std::cout << "2.元素出队" << std::endl;
 		std::cout << "3.队列判空" << std::endl;
-		std::cout << "0.操作结束" << std::endl;
+		std::cout << "0.操作结束" << std::endl;  
 		int key;
 		bool flag = false;
 		std::cin >> key;
