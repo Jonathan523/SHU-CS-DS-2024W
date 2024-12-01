@@ -1,30 +1,17 @@
 #include "Queue.hpp"
 #include <iostream>
 
-
-Queue::Queue(int maxSize) : maxSize(maxSize), frontIndex(0), rearIndex(0), size(0)
+Queue::Queue(int maxSize)
+    : maxSize(maxSize), frontIndex(0), rearIndex(0), size(0)
 {
     data = new int[maxSize];
 }
 
+Queue::~Queue() { delete[] data; }
 
-Queue::~Queue()
-{
-    delete[] data;
-}
+bool Queue::isEmpty() const { return size == 0; }
 
-
-bool Queue::isEmpty() const
-{
-    return size == 0;
-}
-
-
-bool Queue::isFull() const
-{
-    return size == maxSize;
-}
-
+bool Queue::isFull() const { return size == maxSize; }
 
 void Queue::push(int value)
 {
@@ -37,7 +24,6 @@ void Queue::push(int value)
     ++size;
 }
 
-
 void Queue::pop()
 {
     if (isEmpty()) {
@@ -47,7 +33,6 @@ void Queue::pop()
     frontIndex = (frontIndex + 1) % maxSize;
     --size;
 }
-
 
 int Queue::front() const
 {
@@ -60,7 +45,7 @@ int Queue::front() const
 
 void Queue::print() const
 {
-    std::cout<<"\nQueue: ";
+    std::cout << "\nQueue: ";
     if (isEmpty()) {
         std::cerr << "队列为空！" << '\n';
         return;
