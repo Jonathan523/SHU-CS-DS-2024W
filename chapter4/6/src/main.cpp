@@ -7,7 +7,9 @@ int main()
     int n;
     int e;
     int k;
+#ifdef DS_DEBUG
     std::cout << "Input the max length of the queue : ";
+#endif
     std::cin >> max;
     SeqQueue q(max);
 
