@@ -8,7 +8,7 @@ CompileFlags:
     - -fmodule-mapper=*
     - -fdeps-format=*
     - -fexec-charset=*
-  CompilationDatabase: build/
+  CompilationDatabase: build/compile_commands.json
 Diagnostics:
   UnusedIncludes: None
 
