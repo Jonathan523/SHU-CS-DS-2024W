@@ -8,6 +8,10 @@ int main()
     std::cout << "Please enter the maximum size of the stack: ";
 #endif
     std::cin >> maxsize;
+     while (maxsize <= 0) {
+        std::cout << "invalid input" << std::endl;
+        std::cin >> maxsize;
+    }
     Stack sqe_stack(maxsize);
 #ifdef DS_DEBUG
     std::cout << "Please input the value of stack1 (end with Enter): ";
@@ -39,9 +43,12 @@ int main()
         std::cout << "How much? ";
 #endif
         std::cin >> k;
-        while ((k--) != 0) {
-            sqe_stack.pop1();
+        if (k >= 0) {
+            while (k--)
+                sqe_stack.pop1();
         }
+else
+    std::cout << "invalid input" << std::endl;
         std::cout << '\n';
     }
 
@@ -55,9 +62,12 @@ int main()
         std::cout << "How much? ";
 #endif
         std::cin >> k;
-        while ((k--) != 0) {
-            sqe_stack.pop2();
+        if (k >= 0) {
+            while (k--)
+                sqe_stack.pop2();
         }
+else
+    std::cout << "invalid input" << std::endl;
         std::cout << '\n';
     }
 
