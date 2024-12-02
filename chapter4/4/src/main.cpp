@@ -8,7 +8,7 @@ int main()
     std::cout << "Please enter the maximum size of the stack: ";
 #endif
     std::cin >> maxsize;
-     while (maxsize <= 0) {
+    while (maxsize <= 0) {
         std::cout << "invalid input" << std::endl;
         std::cin >> maxsize;
     }
@@ -44,11 +44,12 @@ int main()
 #endif
         std::cin >> k;
         if (k >= 0) {
-            while (k--)
+            while ((k--) != 0) {
                 sqe_stack.pop1();
+            }
+        } else {
+            std::cout << "invalid input" << std::endl;
         }
-else
-    std::cout << "invalid input" << std::endl;
         std::cout << '\n';
     }
 
@@ -63,11 +64,12 @@ else
 #endif
         std::cin >> k;
         if (k >= 0) {
-            while (k--)
+            while ((k--) != 0) {
                 sqe_stack.pop2();
+            }
+        } else {
+            std::cout << "invalid input" << std::endl;
         }
-else
-    std::cout << "invalid input" << std::endl;
         std::cout << '\n';
     }
 
