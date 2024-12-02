@@ -37,7 +37,8 @@ void LinkList::insert(int val)
     head = newNode;
 }
 
-LinkList LinkList::merge_and_reverse(const LinkList& list1, const LinkList& list2)
+LinkList LinkList::merge_and_reverse(const LinkList& list1,
+                                     const LinkList& list2)
 {
     LinkList mergedAndReversedList;
     Node* current1 = list1.head;

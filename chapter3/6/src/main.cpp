@@ -1,6 +1,5 @@
 #include "LinkList.hpp"
 #include <iostream>
-using namespace std;
 
 int main()
 {
@@ -8,29 +7,29 @@ int main()
     LinkList Link;
 
 #ifdef DS_DEBUG
-    cout << "输入元素数量：";
+    std::cout << "输入元素数量：";
 #endif
-    cin >> n;
+    std::cin >> n;
     int k;
     for (int i = 0; i < n; i++) {
-        cin >> k;
+        std::cin >> k;
         Link.append(k);
     }
 
-    cout << "LinkList: " << endl;
+    std::cout << "LinkList: " << '\n';
     Link.ShowLinkList();
-    cout << '\n';
+    std::cout << '\n';
 #ifdef DS_DEBUG
-    cout << "Please input the element you want to insert : ";
+    std::cout << "Please input the element you want to insert : ";
 #endif
-    cin >> e;
+    std::cin >> e;
     Link.Insert(e);
-    cout << "LinkList: " << endl;
+    std::cout << "LinkList: " << '\n';
     Link.ShowLinkList();
-    cout << '\n';
+    std::cout << '\n';
 #ifdef DS_DEBUG
-    cout << "Please input the element you want to delete : ";
+    std::cout << "Please input the element you want to delete : ";
 #endif
-    cin >> e;
+    std::cin >> e;
     Link.Delete(e);
 }

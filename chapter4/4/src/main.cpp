@@ -9,7 +9,7 @@ int main()
 #endif
     std::cin >> maxsize;
     while (maxsize <= 0) {
-        std::cout << "invalid input" << std::endl;
+        std::cout << "Invalid input, Please try again: ";
         std::cin >> maxsize;
     }
     Stack sqe_stack(maxsize);
@@ -48,7 +48,7 @@ int main()
                 sqe_stack.pop1();
             }
         } else {
-            std::cout << "invalid input" << std::endl;
+            std::cout << "Invalid input" << '\n';
         }
         std::cout << '\n';
     }
@@ -68,7 +68,7 @@ int main()
                 sqe_stack.pop2();
             }
         } else {
-            std::cout << "invalid input" << std::endl;
+            std::cout << "Invalid input" << '\n';
         }
         std::cout << '\n';
     }
