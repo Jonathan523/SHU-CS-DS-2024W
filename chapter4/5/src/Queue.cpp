@@ -4,6 +4,9 @@
 Queue::Queue(const int& size) :EntryStack(size), ExitStack(size),MaxSize(size)
 {}
 
+Queue::~Queue() 
+{}
+
 void Queue::push(int a)
 {
 	if (EntryStack.top < MaxSize - 1)

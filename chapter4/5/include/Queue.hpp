@@ -9,6 +9,7 @@ private:
 	const int MaxSize;
 public:
 	Queue(const int& size = 20);
+	~Queue();
 	void push(int a);
 	int pop();
 	bool IsEmpty();

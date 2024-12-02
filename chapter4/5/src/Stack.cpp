@@ -6,6 +6,11 @@ Stack::Stack(const int& size) :top(-1), MaxSize(size)
 	data = new int[MaxSize];
 }
 
+Stack::~Stack()
+{
+	delete[] data;
+}
+
 void Stack::push(int a)
 {
 	if (top < MaxSize - 1)
