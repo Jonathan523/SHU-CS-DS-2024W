@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include <string>
 std::string findLongestCommonSubString(const std::string& s1,
                                        const std::string& s2)
