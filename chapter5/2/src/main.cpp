@@ -10,26 +10,19 @@ void DeleteString(char* str, int s, int m, int t)
         return;
     }
 
-    char* result = str + s;  // 结果存储到第 s 单元以后的单元
-    int j = 0;
+    std::cout << "Original string: " << str <<std:: endl;
 
-    // 将第 1 到第 (m-1) 个字符复制到结果
-    for (int i = 0; i < m - 1; i++) {
-        result[j++] = str[i];
+    for (int i = m - 1; i < s - t; ++i) {
+        str[i] = str[i + t]; // 将子串后面的字符往前移动
     }
+    str[s - t] = '\0'; 
 
-    // 跳过第 m 到第 (m + t - 1) 个字符追加复制到结果中
-    for (int i = m + t - 1; i < s; i++) {
-        result[j++] = str[i];
-    }
+    // 将删除后的结果复制到第 s 单元以后的部分
+    char* result = str + s; // 指向数组第 s 单元的位置
+    strcpy(result, str);    // 复制删除后的字符串到目标位置
 
-    // 添加字符串结束符
-    result[j] = '\0';
-
-    // 输出结果
-    std::cout << "Original string: " << str << std::endl;
-    std::cout << "Modified string stored after index " << s << ": " << result
-              << std::endl;
+    std::cout << "Modified string: " << str << std::endl;
+    std::cout << "Result stored after index " << s << ": " << result <<std:: endl;
 }
 
 int main()
