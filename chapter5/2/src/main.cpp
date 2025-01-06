@@ -5,6 +5,7 @@
 void DeleteString(char* str, int s, int m, int t)
 {  // m表示起始位置，t表示删除长度
     // 检查违法输入
+
     if (m >= s || t > (s - m)) {
         std::cout << "Invalid input: m or t is out of range." << '\n';
         return;
@@ -33,6 +34,7 @@ int main()
     char str[200];
 #ifdef DS_DEBUG
     std::cout << "Enter your string (length<200)" << '\n';
+
 #endif
     std::cin >> str;
     int s = strlen(str);
