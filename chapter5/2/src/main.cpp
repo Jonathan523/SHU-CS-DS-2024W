@@ -9,20 +9,22 @@ void DeleteString(char* str, int s, int m, int t)
         std::cout << "Invalid input: m or t is out of range." << '\n';
         return;
     }
-
+    char *delete_str=new char[s*2] ;
+    strcpy( delete_str, str);
     std::cout << "Original string: " << str << '\n';
 
-    char* p = str + m;
-    char* q = str + m + t;
+    
+    char* p = delete_str + m;
+    char* q = delete_str + m + t;
     *p = '\0';
-    strcat(str, q);
+    strcat(delete_str, q);
 
     // 将删除后的结果复制到第 s 单元以后的部分
     char* result = str + s;
-    strcpy(result, str);
+    strcpy(result, delete_str);
 
+    
     std::cout << "Modified string: " << str << '\n';
-    std::cout << "Result stored after index " << s << ": " << result << '\n';
 }
 
 int main()
