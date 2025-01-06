@@ -31,7 +31,7 @@ TreeNode* buildTree()
             q.push(current->lchild);
         }
 
-        std::cout << "请输入 " << current->data << " 的右子结点（空结点请输入):";
+        std::cout << "请输入 " << current->data << " 的右子结点（空结点请输入#):";
         int rightVal = readInput();
         if (rightVal != '#') {
             current->rchild = new TreeNode(rightVal);
@@ -52,5 +52,8 @@ int CountLeaf(TreeNode* root)
         return 1;
     }
 
-    return CountLeaf(root->lchild) + CountLeaf(root->rchild);
+    int leftnum=CountLeaf(root->lchild);
+    int rightnum=CountLeaf(root->rchild);
+
+    return leftnum+rightnum;
 }
