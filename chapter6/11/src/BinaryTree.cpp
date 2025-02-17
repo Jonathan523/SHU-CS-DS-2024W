@@ -16,7 +16,7 @@ std::vector<int> BinaryTree::inorderTraversal()
 
         currentNode = nodeStack.top();
         nodeStack.pop();
-        result.push_back(currentNode->value);
+        result.push_back(currentNode->value);  // 相当于 cout
 
         // 转向右子树
         currentNode = currentNode->right;
@@ -30,8 +30,12 @@ BinaryTree::~BinaryTree() { destroyTree(root); }
 void BinaryTree::destroyTree(TreeNode* node)
 {
     if (node != 0) {
-        destroyTree(node->left);
-        destroyTree(node->right);
+        if (node->left != 0) {
+            destroyTree(node->left);
+        }
+        if (node->right != 0) {
+            destroyTree(node->right);
+        }
         delete node;
     }
 }
