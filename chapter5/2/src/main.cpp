@@ -5,24 +5,27 @@
 void DeleteString(char* str, int s, int m, int t)
 {  // m表示起始位置，t表示删除长度
     // 检查违法输入
-    if (m >= s || t >= (s - m)) {
-        std::cout << "Invalid input: m or t is out of range." << std::endl;
+
+    if (m >= s || t > (s - m)) {
+        std::cout << "Invalid input: m or t is out of range." << '\n';
         return;
     }
+    char *delete_str=new char[s*2] ;
+    strcpy( delete_str, str);
+    std::cout << "Original string: " << str << '\n';
 
-    std::cout << "Original string: " << str <<std:: endl;
-
-    for (int i = m - 1; i < s - t; ++i) {
-        str[i] = str[i + t]; // 将子串后面的字符往前移动
-    }
-    str[s - t] = '\0'; 
+    
+    char* p = delete_str + m;
+    char* q = delete_str + m + t;
+    *p = '\0';
+    strcat(delete_str, q);
 
     // 将删除后的结果复制到第 s 单元以后的部分
-    char* result = str + s; // 指向数组第 s 单元的位置
-    strcpy(result, str);    // 复制删除后的字符串到目标位置
+    char* result = str + s;
+    strcpy(result, delete_str);
 
-    std::cout << "Modified string: " << str << std::endl;
-    std::cout << "Result stored after index " << s << ": " << result <<std:: endl;
+    
+    std::cout << "Modified string: " << str << '\n';
 }
 
 int main()
@@ -30,7 +33,8 @@ int main()
 
     char str[200];
 #ifdef DS_DEBUG
-    std::cout << "Enter your string (length<200)" << std::endl;
+    std::cout << "Enter your string (length<200)" << '\n';
+
 #endif
     std::cin >> str;
     int s = strlen(str);
